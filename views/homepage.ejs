@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="/css/homeStyles.css" />
+  </head>
+  <body>
+    <main>
+      <div class="action-buttons">
+        <button class="action-button show-modal">Predict</button>
+        <!-- <form class="form1" action="/form" method="post">
+          <input type="submit" id="login-button" value="Sign-Up" />
+        </form> -->
+        <a href="/form"
+          ><button id="login-button " class="action-button show-modal">
+            Sign-Up
+          </button></a
+        >
+      </div>
+      <div id="header">
+        <h1>Rankings</h1>
+      </div>
+      <div id="leaderboard">
+        <!-- <div class="ribbon"></div> -->
+        <!-- <img
+          class="gold-medal"
+          src="https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true"
+          alt="gold medal"
+        /> -->
+        <table>
+          <!-- <tr>
+            <td class="number">2</td>
+            <td class="name">Mark</td>
+            <td class="points">258.242</td>
+          </tr> -->
+      <thead> <td>Rank</td>
+        <td>Username</td>
+        <td>Points</td></thead>    
+           
+        
+
+         <tbody>
+          <% leads.forEach((item, index) => { %>
+            <tr>
+              <td class="number"><%= index + 1 %></td>
+              <td class="name"><%= item.username %></td>
+              <td class="points"><%= item.points %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+        </table>
+      </div>
+    </main>
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>Predict The Match</h1>
+      <form action="/votes" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+        <br /><br />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <br /><br />
+
+        <label for="matches">Matches:</label>
+        <!-- <input type="text" id="matches" name="matches" required /> -->
+        <!-- <select id="match" name="match"> -->
+          <!-- <option value="MatchA"><%= Match %></option> -->
+          <!-- <option value="Team B">Match B</option> -->
+        <!-- </select> -->
+        <label><%= Match %></label>
+        <br /><br />
+
+        <label for="team">Select Team:</label>
+        <select id="team" name="team">
+          <option value="<%= teamA %>"><%= teamA %></option>
+          <option value="<%= teamB %>"><%= teamB %></option>
+        </select>
+        <br /><br />
+
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <script src="/js/homeScript.js"></script>
+  </body>
+</html>
